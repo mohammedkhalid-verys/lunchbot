@@ -3,11 +3,16 @@ require 'bundler/setup'
 require 'yelp'
 require 'pp'
 
+get "/" do
+  "hello"
+end
+
 get "/search/:term" do
   search_params params[:term]
   search_yelp
 end
 
+private
 # Setup yelp oauth
 def initialize_yelp
   Yelp::Client.new(
